@@ -1,0 +1,28 @@
+p {
+    font-style: italic;
+
+}
+
+.odd {
+    color: #f34577;
+}
+
+#parafour {
+    padding: 50px;
+}
+ul li {
+    font-weight: bold;
+}
+
+[class~=key] {
+    color: green;
+}
+
+p:hover {
+    font-size: 45px;
+    color: blue;
+}
+
+[contenteditable=true] {
+    color: blue;
+}
