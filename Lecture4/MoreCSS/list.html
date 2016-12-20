@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul > li > ul {
+            display: none;
+        }
+        ul > li:hover > ul {
+            display: block;
+        }
+        
+        .graddiv {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(violet, indigo, blue, green, yellow, orange, red);
+        }
+
+        .transdiv {
+            width: 100px;
+            height: 100px;
+            background: #fc4f4f;
+            transition: width 1s;
+        }
+        .transdiv:hover {
+            width: 200px;
+            /*transform: matrix(1, -0.3, 0, 1, 0, 0);*/
+        }
+
+        @keyframes multianim {
+            0% {background: red; width: 100px; height: 200px; transform: translate(100px)}
+            25% {background: green; width: 200px; height: 200px; transform: translate(50px)}
+            50% {background: blue; width: 200px; height: 100px}
+            75% {background: black; width: 100px; height: 100px}
+            100% {background: yellow; height: 40px; width: 60px}
+
+        }
+
+        .animdiv {
+            height: 40px; width: 60px;
+            animation: multianim 4s;
+            animation-iteration-count: 1;
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li>One
+        <ul>
+            <li>One point one</li>
+            <li>One point two</li>
+        </ul>
+    </li>
+    <li>Two
+        <ul>
+            <li>Two point one</li>
+        </ul>
+    </li>
+</ul>
+
+<div class="graddiv"></div>
+<div class="transdiv"></div>
+<div class="animdiv"></div>
+
+</body>
+</html>

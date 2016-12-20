@@ -1,0 +1,17 @@
+div.menu-bar  {
+    color: red;
+    position: absolute;
+    top: 40px;
+    width: 40px;
+    min-width: 10px;
+    height: auto;
+    font-size: 40px;
+    text-shadow: 10px 10px blue;
+}
+
+div.measure {
+    float: right;
+    background: #fc4f4f;
+    width: 1em;
+    height: 10em;
+}
