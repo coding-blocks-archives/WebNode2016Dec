@@ -1,0 +1,11 @@
+div + span {
+    color: green;
+}
+
+div, span {
+    font-weight: bold;
+}
+
+ul > li:first-child {
+    font-size: 30px;
+}

@@ -1,0 +1,37 @@
+* {
+    font-size: 25px;
+}
+
+p {
+    color: blue;
+}
+
+div {
+    color: green;
+}
+
+.prime {
+    font-style: italic;
+}
+
+.even {
+    text-align: right;
+    font-style: normal;
+}
+
+[title] {
+    font-weight: bold;
+}
+
+[title=world] {
+    font-size: 18px;
+}
+
+[lang|=en] {
+
+}
+
+
+#three {
+    color: red;
+}
