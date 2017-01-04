@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        console.log("hello world")
+        a = 10;
+        printHello = function () {
+            console.log("printing hello")
+        }
+    </script>
+</head>
+<body>
+
+<div id="myDiv"></div>
+
+<ul id="fizzbuzz"></ul>
+
+<script>
+    myList = document.getElementById("fizzbuzz");
+
+    start = (new Date()).getTime();
+    contents = "";
+
+    for (i = 1; i <= 1000; i++) {
+        a = "";
+        if (i%3 == 0) {
+            a += "fizz";
+        }
+        if (i%5 == 0) {
+            a += "buzz"
+        }
+        if (a == "") {
+            a = i;
+        }
+        contents += "<li>" + a + "</li>"
+
+    }
+    myList.innerHTML = contents;
+    console.log("Time taken = " + ((new Date()).getTime() - start))
+
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        var div1 = document.getElementById("myDiv");
+        var div2;
+
+        window.onload = function () {
+            div2 = document.getElementById("otherDiv");
+
+            var greetBtn = document.getElementById("hello");
+            var nameBox = document.getElementById("name");
+
+            greetBtn.onclick = function () {
+                window.alert("Hello " + nameBox.value)
+            }
+
+        }
+    </script>
+</head>
+<body>
+
+<div id="myDiv"></div>
+<div id="otherDiv"></div>
+<input type="text" id="name">
+<button id="hello">Greet</button>
+
+</body>
+</html>

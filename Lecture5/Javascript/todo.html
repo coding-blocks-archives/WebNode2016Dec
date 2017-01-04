@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        window.onload = function () {
+            newtodo = document.getElementById("newtodo")
+            add = document.getElementById("add")
+            todo = document.getElementById("todo")
+
+            add.onclick = function () {
+                todo.innerHTML += "<li>" + newtodo.value + "</li>"
+            }
+        }
+    </script>
+</head>
+<body>
+
+<input id="newtodo" type="text" placeholder="New todo item">
+<button id="add"> add</button>
+
+<ul id="todo">
+
+</ul>
+
+</body>
+</html>
