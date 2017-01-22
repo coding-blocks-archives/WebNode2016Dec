@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="bubble.js"></script>
+
+    <style>
+        div {
+            padding: 5px;
+        }
+        #one, #four {
+            width: 100px; height: 100px;
+            background-color: cyan;
+        }
+        #two, #five {
+            width: 80px; height: 80px;
+            background-color: gold;
+        }
+        #three, #six {
+            width: 60px; height: 60px;
+            background-color: lightpink;
+        }
+    </style>
+</head>
+<body>
+
+<div id="one" onclick="clicked(this)">
+    <div id="two" onclick="clicked(this)">
+        <div id="three" onclick="clicked(this)">
+
+        </div>
+    </div>
+</div>
+<br>
+
+<div id="four">
+    <div id="five">
+        <div id="six">
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
