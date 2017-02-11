@@ -10,7 +10,7 @@ function getTodos () {
         let list = "";
 
         for (todo of data) {
-            list += "<li>" + todo.task + "</li>"
+            list += "<li data-todoid='" + todo.id + "'>" + todo.task + "</li>"
         }
 
         $('#todolist').html(list);

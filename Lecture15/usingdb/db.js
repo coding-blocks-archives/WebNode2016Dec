@@ -19,9 +19,23 @@ function getAllTodos(done) {
         if (err) throw err;
 
         done(rows);
-    })
+        conn.end();
+    });
+}
+function setTaskDone(id, done) {
+    let conn = mysql.createConnection(dbconf);
+    conn.connect();
+
+    conn.query("UPDATE todos SET done=1 WHERE id = " + id,
+        function (err, rows, fields) {
+            if (err) throw err;
+
+            done(rows);
+            conn.end();
+    });
 }
 
 module.exports = {
-    getAllTodos
+    getAllTodos,
+    setTaskDone
 };
