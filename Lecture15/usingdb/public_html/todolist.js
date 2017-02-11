@@ -17,6 +17,16 @@ function getTodos () {
     })
 
 }
+
+function doTodo(todoid) {
+    $.post('todos/done',
+        {id: todoid},
+        function (data) {
+
+        }
+    )
+}
+
 $(function () {
 
     getTodos();
