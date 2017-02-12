@@ -26,4 +26,12 @@ app.post('/todos/add', (req, res) => {
     })
 });
 
+app.post('/todos/edit', (req, res) => {
+    db.setTaskState(req.body.taskid, req.body.done,
+        function(result) {
+            res.send(result)
+        }
+    )
+});
+
 app.listen(2351, () => {console.log('Started on 2351')});

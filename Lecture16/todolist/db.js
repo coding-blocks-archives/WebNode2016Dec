@@ -18,7 +18,8 @@ function addNewTask (task, done) {
         "INSERT INTO todos SET ?",
         {task: task, done: false},
         function (err, result, fields) {
-            done(result)
+            done(result);
+            conn.end();
         }
     );
 }
@@ -32,13 +33,23 @@ function fetchTasks(done) {
         "SELECT * FROM todos",
         function (err, result, fields) {
             if (err) throw err;
-
-
             done(result);
         }
     );
 }
 
+function setTaskState(taskId, isDone, done) {
+    let conn = mysql.createConnection(dbconf);
+    conn.connect();
+    conn.query(
+        "UPDATE todos SET ? WHERE ?",
+        [{done: isDone}, {id: taskId}],
+        function (err, result, fields) {
+            done(result)
+        }
+    );
+}
+
 module.exports = {
-    fetchTasks, addNewTask
+    fetchTasks, addNewTask, setTaskState
 };
