@@ -45,6 +45,7 @@ function setTaskState(taskId, isDone, done) {
         "UPDATE todos SET ? WHERE ?",
         [{done: isDone}, {id: taskId}],
         function (err, result, fields) {
+            if (err) throw err;
             done(result)
         }
     );

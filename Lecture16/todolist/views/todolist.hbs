@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/todos/addtodo" method="post">
+<input type="text" name="task" id="newtodo">
+    <input type="checkbox" name="done">
+
+    <input type="submit" id="add" value="ADD">
+</form>
+
+<br>
+
+<ul id="todolist">
+    {{#each todos as |todo|}}
+        <li> {{todo.task}} </li>
+    {{/each}}
+
+</ul>
+
+</body>
+</html>
