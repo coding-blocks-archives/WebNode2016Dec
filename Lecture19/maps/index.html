@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.1.1.js"></script>
+    <style>
+        #map {
+            height: 500px;
+            width: 500px;
+        }
+    </style>
+    <script>
+        function initMap() {
+
+            var delhi = {lat: 28.5, lng: 77.5};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: delhi
+            });
+//            var cb = new google.maps.Marker({
+//                position: {lat: 28.696948, lng: 77.142399},
+//                map: map,
+//                title: "Coding Blocks",
+//                clickable: true
+//            });
+//
+//            cb.addListener("click", function () {
+//                console.log("clicked");
+//            })
+
+            $('#search').click(function () {
+                var address = $('#place').val();
+                address = address.replace(" ", "+");
+
+                var url = 'https://maps.googleapis.com/maps/api/geocode/json?address='
+                    +address+'&key=AIzaSyBI9Rd8q3X1142xUuVgl2Y9zNUqFMoeI1w';
+
+                $.get(url, function (data) {
+                    for (place of data.results) {
+                        var point = new google.maps.Marker({
+                            position: place.geometry.location,
+                            map: map,
+                            title: place.formatted_address
+                        });
+                    }
+                })
+            })
+        }
+    </script>
+</head>
+<body>
+
+<div id="map">
+</div>
+<input type="text" id="place">
+<button id="search">SEARCH</button>
+
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI9Rd8q3X1142xUuVgl2Y9zNUqFMoeI1w&callback=initMap">
+</script>
+
+
+</body>
+</html>
