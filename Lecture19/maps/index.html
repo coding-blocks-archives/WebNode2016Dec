@@ -15,10 +15,15 @@
 
             var delhi = {lat: 28.5, lng: 77.5};
 
+            var dirService = new google.maps.DirectionsService;
+            var dirDisplay = new google.maps.DirectionsRenderer;
+
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 8,
                 center: delhi
             });
+
+            dirDisplay.setMap(map);
 //            var cb = new google.maps.Marker({
 //                position: {lat: 28.696948, lng: 77.142399},
 //                map: map,
@@ -47,6 +52,33 @@
                     }
                 })
             })
+
+            $('#route').click(function () {
+                var orig = $('#origin').val().replace(" ", "+");
+                var dest = $('#destination').val().replace(" ", "+");
+//                var url = 'https://maps.googleapis.com/maps/api/directions/json?key=AIzaSyBI9Rd8q3X1142xUuVgl2Y9zNUqFMoeI1w';
+//                url += '&origin=' + orig;
+//                url += '&destination=' + dest;
+                
+                dirService.route({
+                    origin: orig,
+                    destination: dest,
+                    travelMode: 'DRIVING'
+                }, function (resp, status) {
+                    console.log(status);
+                    console.log(resp);
+                    if (status == 'OK') {
+                        dirDisplay.setDirections(resp)
+                    }
+                });
+
+//                $.get(url, function (data) {
+//                    dirDisplay.setDirections(data)
+//                })
+
+                
+            })
+
         }
     </script>
 </head>
@@ -54,9 +86,12 @@
 
 <div id="map">
 </div>
-<input type="text" id="place">
+<input type="text" id="place" placeholder="search">
 <button id="search">SEARCH</button>
 
+<input type="text" id="origin" placeholder="from">
+<input type="text" id="destination" placeholder="to">
+<button id="route">ROUTE</button>
 
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI9Rd8q3X1142xUuVgl2Y9zNUqFMoeI1w&callback=initMap">
