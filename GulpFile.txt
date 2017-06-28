@@ -1,0 +1,16 @@
+we can install node and npm on mac by homebrew.
+homebrew is a package manager for this type of applications
+-----------------------------------------------------------------
+npm install http-server -g
+npm install http-server --global
+for running app:
+http-server
+http-server -p 1222
+--------------------------------------------------------------------
+
+npm install gulp -g
+npm install gulp --save-dev
+
+npm install gulp-concat --save-dev
+
+npm install gulp-uglify --save-dev
